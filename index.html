@@ -4,52 +4,29 @@
   <meta charset="UTF-8">
   <title>emoji-map</title>
   <style>
+    /* html, body { padding:0; margin:0; } */
+    
     body {
       font-family: system-ui;
       cursor: default;
     }
+    
     .content {
       white-space: pre-wrap;
-    }
-    #cursor-follow {
-      position:fixed;
-      background-image:url('./sheet_training_emoji1_100_noborder_q50.jpg');
+      padding: 1em 0;
     }
   </style>
-  <script>
-    const size = 40;
-    const offset = {x:10, y:0};
-    const randomize = 1;
-    
-    document.addEventListener("DOMContentLoaded", () => {
-      let follower = document.querySelector('#cursor-follow');
-      follower.style.width = size + 'px';
-      follower.style.height = size + 'px';
-      follower.style.borderRadius = size/2 + 'px';
-      follower.style.backgroundSize = size*100 + 'px ' + size*100 + 'px';
-      
-      function updateFollower(e) {
-        // console.log(e);
-        follower.style.left = e.clientX + offset.x + 'px';
-        follower.style.top  = e.clientY + offset.y + 'px';
-        
-        let idx_x = Math.floor( e.clientX / (window.innerWidth/100) );
-        let idx_y = Math.floor( e.clientY / (window.innerHeight/100) );
-        // console.log(idx_x, idx_y);
-        let sheet_x = -idx_x * size;
-        let sheet_y = -idx_y * size;
-        follower.style.backgroundPosition = sheet_x + 'px ' + sheet_y + 'px';
-      }
-      let html = document.querySelector('html')
-      html.addEventListener("mousemove", updateFollower);
-      html.addEventListener("mouseenter", () => { follower.style.display = 'block' });
-      html.addEventListener("mouseleave", () => { follower.style.display = 'none' });
-      // window.addEventListener("scroll", updateFollower);
-    });
-  </script>
+  <script src="./emoji-map.js"></script>
 </head>
+
 <body>
-  <a href="./index2.html">Embedded version</a><br><br>
+  <a href="./index2.html">Full page</a><br>
+  <a href="./index3.html">IFrame</a><br><br>
+  
+  <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id consectetur lacus, nec pellentesque felis. Mauris fringilla ex in arcu cursus lobortis. Duis justo tortor, fringilla quis convallis convallis, molestie quis est. Duis ornare ultricies leo sit amet consectetur. Nulla ac nunc nec nisi eleifend tincidunt in eu risus. Aenean elementum scelerisque lacus, ac maximus lorem lobortis vel. Nulla sagittis nisl vel massa efficitur tincidunt. Ut eleifend semper ipsum nec auctor. In eget quam et lectus bibendum auctor eu cursus ante. Nullam congue nulla sed gravida luctus.</div>
+
+  <div id="emoji-map"></div>
+  
   <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris id consectetur lacus, nec pellentesque felis. Mauris fringilla ex in arcu cursus lobortis. Duis justo tortor, fringilla quis convallis convallis, molestie quis est. Duis ornare ultricies leo sit amet consectetur. Nulla ac nunc nec nisi eleifend tincidunt in eu risus. Aenean elementum scelerisque lacus, ac maximus lorem lobortis vel. Nulla sagittis nisl vel massa efficitur tincidunt. Ut eleifend semper ipsum nec auctor. In eget quam et lectus bibendum auctor eu cursus ante. Nullam congue nulla sed gravida luctus.
 
 Etiam vehicula felis vel odio tempus, eget placerat neque tempor. Nam rhoncus hendrerit metus, vel condimentum erat facilisis vel. Aliquam sed massa orci. Aliquam elementum enim quis tortor lacinia, vel dapibus odio pulvinar. Praesent rhoncus, augue ut fringilla posuere, mauris felis imperdiet dui, vel viverra leo dui nec mauris. Nunc non lorem ullamcorper, ultricies lectus in, consequat neque. Donec dolor felis, consequat sed odio quis, vehicula porta justo. Proin mollis dui ex, nec auctor turpis euismod vitae. Aenean tincidunt, neque ac eleifend commodo, mauris sapien mattis nisl, eu tristique ligula libero at diam. Phasellus velit tellus, feugiat at leo ut, malesuada tempus ex. Nullam ullamcorper ipsum sed elit tempus, a maximus eros dignissim. Cras id vestibulum erat.
@@ -90,6 +67,5 @@ Sed et pretium sapien, vitae convallis justo. Integer vestibulum eget elit vitae
 
 Pellentesque dignissim metus urna, ut tristique libero posuere vel. Proin euismod tellus a sem ullamcorper, eget dictum nunc consectetur. Nullam malesuada, tortor ac maximus suscipit, sapien mi mollis nisl, vitae pretium ante odio ut ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nisi mi, molestie quis posuere ut, accumsan quis ligula. Nullam quis dolor iaculis, pharetra nisi et, fermentum lacus. Donec elementum luctus leo, vitae ultricies eros feugiat quis. Fusce eleifend lectus a nisl vehicula scelerisque. Donec a magna nec nunc dictum lobortis. Aenean et tortor ut lectus ultrices tincidunt. Suspendisse at lacus volutpat, posuere est lacinia, mattis risus. Sed consequat non dolor et laoreet. Vivamus pretium maximus sem, a hendrerit enim. Quisque pharetra lectus et mauris eleifend maximus. Praesent sodales libero non iaculis commodo.</div>
 
-<div id="cursor-follow"></div>
 </body>
 </html>
